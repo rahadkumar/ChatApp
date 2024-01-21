@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+/* messageContainer */
+
+.messageContainer {
+    width: min(800px, 90%);
+    border: 2px solid;
+    height: 600px;
+    border-radius: 10px;
+    padding: 10px 0;
+    position: relative;
+}
+
+.allChat {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 0 rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
+}
+
+.allChat::-webkit-scrollbar {
+    display: none;
+}
+
+.allChat .material-symbols-outlined {
+    position: absolute;
+    left: 10px;
+    bottom: 100px;
+    font-size: 4rem;
+    font-weight: 600;
+    user-select: none;
+    background: #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 250ms;
+}
+
+.allChat h4 {
+    width: 400px;
+    margin: 10px 0;
+    padding: 20px 25px;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    overflow-wrap: break-word;
+    position: relative;
+}
+
+.allChat h4 .userName {
+    position: absolute;
+    top: -18px;
+    left: 30px;
+    font-size: 1rem;
+    color: #000;
+    text-transform: capitalize;
+    opacity: 1;
+}
+
+.allChat h4:hover .material-symbols-outlined {
+    opacity: 1;
+}
+
+.allChat .another {
+    background: #ccc;
+    border-radius: 0 10px 10px 0;
+}
+
+.allChat .myself {
+    text-align: right;
+    align-self: flex-end;
+    color: #fff;
+    background: blue;
+    border-radius: 10px 0 0 10px;
+}
+
+.allChat .NewJoined {
+    align-self: center;
+    text-align: center;
+    background: rgb(238, 151, 151);
+    width: max-content;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-transform: capitalize;
+}
+
+.allChat .myself .userName {
+    left: auto;
+    right: 30px;
+}
+
+.messageContainer .sendMessage {
+    position: relative;
+    width: 90%;
+    height: 10%;
+    margin: 8px auto 0 auto;
+}
+
+.sendMessage input {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+    background: #ccc;
+    outline: none;
+    padding-left: 10px;
+    font-size: 1.2rem;
+}
+
+.sendMessage .material-symbols-outlined {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    font-weight: 600;
+    user-select: none;
+    cursor: pointer;
+    padding: 4px 5px;
+    border-radius: 50%;
+    opacity: .5;
+    pointer-events: none;
+    transition: opacity 250ms;
+}
+
+.sendMessage .material-symbols-outlined:hover {
+    background: #a4a3a3;
+}
+
+/* sppning animation */
+
+button:disabled,
+button:hover:disabled {
+    width: 50%;
+    color: #ccc;
+    background: #fff;
+    outline: 1px solid;
+    cursor: not-allowed;
+    position: relative;
+}
+
+
+.spin {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: #ccc;
+
+}
+
+.spin::before,
+.spin::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    height: 75%;
+    aspect-ratio: 1 / 1;
+    border: 3px solid #fff;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: spinning 500ms linear infinite;
+}
+
+.spin::after {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    animation: spinning 500ms 250ms ease infinite;
+}
+
+@keyframes spinning {
+    0% {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    35% {
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+    70% {
+        transform: translate(-50%, -50%) rotate(270deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
